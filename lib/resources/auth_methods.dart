@@ -1,10 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:firebase_storage/firebase_storage.dart';
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -21,11 +19,23 @@ class AuthMethods {
       if (email.isNotEmpty ||
           password.isNotEmpty ||
           bio.isNotEmpty ||
-          username.isNotEmpty ) {
+          username.isNotEmpty) {
         UserCredential cred = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
-        print("cred $cred");
-        print("ced.uid ${cred.user}");
+
+        //uid means unique identification
+        //firestore stores data in the firebase. these are the
+        _firestore.collection("users").doc(cred.user!.uid).set({
+          "username": username,
+          "password": password,
+          "uid": cred.user!.uid,
+          "email": email,
+          "bio": bio,
+          "followers": [],
+          "following": []
+        });
+
+        await _firestore.collection("users").add({});
       }
     } catch (err) {
       res = err.toString();

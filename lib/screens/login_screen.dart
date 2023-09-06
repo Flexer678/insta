@@ -31,57 +31,57 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 32),
+          padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             children: [
               Flexible(
-                child: Container(),
                 flex: 1,
+                child: Container(),
               ),
               //svg picture
               SvgPicture.asset("assets/ic_instagram.svg",
-                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
                   color: Colors.white,
                   height: 64),
-              SizedBox(
+              const SizedBox(
                 height: 64,
               ),
               TextFieldInput(
                   textEditingController: _emailController,
                   hintText: "Enter your email",
                   textInputType: TextInputType.emailAddress),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               TextFieldInput(
                   textEditingController: _passwordController,
                   hintText: "Enter your password",
                   textInputType: TextInputType.emailAddress),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               Container(
-                child: const Text("Log in"),
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 decoration: const BoxDecoration(
                     color: blueColor,
                     borderRadius: BorderRadius.all(Radius.circular(4))),
+                child: const Text("Log in"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               Flexible(
-                child: Container(),
                 flex: 2,
+                child: Container(),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Text("Don't have an account"),
                     padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: const Text("Don't have an account"),
                   ),
                   GestureDetector(
                     child: Container(
@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ))),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 34,
                   ),
                 ],

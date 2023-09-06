@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/responsive/mobile_screen_layour.dart';
-import 'package:instagram/responsive/responsive_layout_screen.dart';
-import 'package:instagram/responsive/web_screen_layout.dart';
-import 'package:instagram/screens/login_screen.dart';
 import 'package:instagram/screens/signup_screen.dart';
 import 'utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,7 +11,7 @@ void main() async {
   if (kIsWeb) {
     //to check if its web which if true needs options like the apikey etc
     await Firebase.initializeApp(
-        options: FirebaseOptions(
+        options: const FirebaseOptions(
             apiKey: "AIzaSyCq19_XoCjCjbRk5P8ayuwoBDU2f_Hb-CU",
             authDomain: "instaclone-27d2d.firebaseapp.com",
             projectId: "instaclone-27d2d",
@@ -39,7 +35,7 @@ class MyApp extends StatelessWidget {
         title: 'Instagram Clone',
         theme: ThemeData.dark()
             .copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
-        home: SignupScreen()
+        home: const SignupScreen()
 
         //ResponsiveLayout(
         //    WebScreenLayout: WebScreenLayout(),
